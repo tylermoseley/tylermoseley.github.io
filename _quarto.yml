@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "tylermoseley.github.io"
@@ -15,6 +16,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-
