@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "tylermoseley.github.io"
+  title: "Tyler Moseley"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - about.qmd
@@ -13,6 +13,6 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: sandstone
     css: styles.css
-    toc: true
+    toc: false
