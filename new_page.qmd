@@ -1,5 +1,0 @@
----
-title: "New Page"
----
-
-About this site
