@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
@@ -7,10 +14,10 @@
     "text": "Project Links"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "New Home Page",
     "section": "",
-    "text": "About this site"
+    "text": "P5 = require(\"p5\")\n\n\n\n\n\n\n\nfunction* createSketch(sketch) {\n  const element = DOM.element('div');\n  yield element;\n  const instance = new P5(sketch, element, true);\n  try {\n    while (true) {\n      yield element;\n    }\n  } finally {\n    instance.remove();\n  }\n}\n\ncreateSketch(s =&gt; {\n  \n    s.setup = function() {\n      s.createCanvas(500, 500);\n      s.background(0);\n      s.noStroke();\n    };\n    \n    s.draw = function() {\n      s.translate(\n        100 * s.cos(s.millis() * .001 * s.PI),\n        100 * s.sin(s.millis() * .001 * s.PI),\n      );\n      if (s.random(0, 1) &lt; .1) {\n        s.fill(s.random(0, 255));\n      }\n      s.circle(250, 250, 100);\n    };\n    \n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport plotly.graph_objects as go\nimport pandas as pd\n# Read data from a csv\nz_data = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv')\n\nfig = go.Figure(data=[go.Surface(z=z_data.values)])\n\nfig.update_layout(title='Mt Bruno Elevation', autosize=False,\n                  width=500, height=500,\n                  margin=dict(l=65, r=50, b=65, t=90))\n\nfig.show()"
   }
 ]
