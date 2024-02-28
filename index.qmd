@@ -1,7 +1,7 @@
 ---
 title: New Home Page
-output: all
 ---
+## Image Classification in ml5.js 
 
 ```{ojs}
 {
@@ -14,40 +14,9 @@ output: all
   // Create an image element to display the uploaded image
   const img = html`<img id="image" style="max-width: 100%; margin-top: 10px;"/>`;
   
-  // Create a paragraph element to display the filename
-//   const filenameDisplay = html`<p>Results: None</p>`;
-
+  // Create a div element to display the filename
   const resultDisplay = html`<div id="result">Upload an image to classify it.</div>`;
   
-//   // Function to handle file selection and update the display
-//   fileInput.onchange = (e) => {
-//     const file = e.target.files[0];
-    
-//     // Function to run when results arrive
-//     function gotResult(error, results) {
-//         const element = document.getElementById("result");
-//         if (error) {
-//             element.innerHTML = error;
-//         } else {
-//             let num = results[0].confidence * 100;
-//             element.innerHTML = results[0].label + "<br>Confidence: " + num.toFixed(2) + "%";
-//         }
-//     }
-
-//     if (file) {
-//       // Update the image source to display the selected image
-//       img.src = URL.createObjectURL(file);
-
-//       // Update the text to display the filename
-//       resultDisplay.textContent = `Scanning ...`;
-
-//       // Initialize Image Classifier with MobileNet.
-//       const classifier =  ml5.imageClassifier('MobileNet');
-//       classifier.classify(document.getElementById("image"), gotResult);
-      
-//     }
-//   };
-
   // Function to handle file selection and update the display
   fileInput.onchange = async (e) => {
     const file = e.target.files[0];
@@ -71,7 +40,7 @@ output: all
       };
       
       // Reset the result display for the new image
-      resultDisplay.textContent = `Scanning ...`;
+      resultDisplay.textContent = `Classifying ...`;
     }
   };
   
@@ -80,8 +49,7 @@ output: all
 }
 ```
 
-
-
+## Processing Animation in p5.js
 
 ```{ojs}
 P5 = require("p5")
@@ -89,7 +57,7 @@ P5 = require("p5")
 
 Credit: [Danielle Navarro](https://blog.djnavarro.net/posts/2023-01-14_p5js/)
 
-```{ojs}
+```{ojs code-fold=TRUE}
 function* createSketch(sketch) {
   const element = DOM.element('div');
   yield element;
@@ -142,7 +110,8 @@ createSketch(s => {
 
 ```
 
-```{python}
+## Interactive Plotly in Python
+```{python code-fold=TRUE}
 import plotly.graph_objects as go
 import pandas as pd
 # Read data from a csv

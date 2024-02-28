@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Tyler Moseley"
+  favicon: favicon.png
   navbar:
     left:
       - href: index.qmd
@@ -25,3 +26,4 @@ format:
     theme: sandstone
     css: styles.css
     toc: false
+    code-fold: true
