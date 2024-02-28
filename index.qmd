@@ -2,11 +2,92 @@
 title: New Home Page
 output: all
 ---
-Credit: [Danielle Navarro](https://blog.djnavarro.net/posts/2023-01-14_p5js/)
+
+```{ojs}
+{
+  // First, ensure the ml5 library is available in this context
+  const ml5 = await require('https://unpkg.com/ml5@latest/dist/ml5.min.js');
+
+  // Create a file input element for image upload
+  const fileInput = html`<input type="file" accept="image/*"/>`;
+  
+  // Create an image element to display the uploaded image
+  const img = html`<img id="image" style="max-width: 100%; margin-top: 10px;"/>`;
+  
+  // Create a paragraph element to display the filename
+//   const filenameDisplay = html`<p>Results: None</p>`;
+
+  const resultDisplay = html`<div id="result">Upload an image to classify it.</div>`;
+  
+//   // Function to handle file selection and update the display
+//   fileInput.onchange = (e) => {
+//     const file = e.target.files[0];
+    
+//     // Function to run when results arrive
+//     function gotResult(error, results) {
+//         const element = document.getElementById("result");
+//         if (error) {
+//             element.innerHTML = error;
+//         } else {
+//             let num = results[0].confidence * 100;
+//             element.innerHTML = results[0].label + "<br>Confidence: " + num.toFixed(2) + "%";
+//         }
+//     }
+
+//     if (file) {
+//       // Update the image source to display the selected image
+//       img.src = URL.createObjectURL(file);
+
+//       // Update the text to display the filename
+//       resultDisplay.textContent = `Scanning ...`;
+
+//       // Initialize Image Classifier with MobileNet.
+//       const classifier =  ml5.imageClassifier('MobileNet');
+//       classifier.classify(document.getElementById("image"), gotResult);
+      
+//     }
+//   };
+
+  // Function to handle file selection and update the display
+  fileInput.onchange = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      img.src = URL.createObjectURL(file);
+      img.onload = () => { // Ensure the image is loaded before classification
+        img.style.display = 'block'; // Show the image
+
+        // Initialize Image Classifier with MobileNet and classify the image
+        ml5.imageClassifier('MobileNet').then(classifier => {
+          classifier.classify(img, (error, results) => {
+            if (error) {
+              resultDisplay.textContent = `Error: ${error}`;
+              console.error(error);
+            } else {
+              let confidence = results[0].confidence * 100;
+              resultDisplay.innerHTML = `${results[0].label}<br>Confidence: ${confidence.toFixed(2)}%`;
+            }
+          });
+        });
+      };
+      
+      // Reset the result display for the new image
+      resultDisplay.textContent = `Scanning ...`;
+    }
+  };
+  
+  // Return a div that contains the file input, image, and filename display
+  return html`<div>${fileInput}${img}${resultDisplay}</div>`;
+}
+```
+
+
+
 
 ```{ojs}
 P5 = require("p5")
 ```
+
+Credit: [Danielle Navarro](https://blog.djnavarro.net/posts/2023-01-14_p5js/)
 
 ```{ojs}
 function* createSketch(sketch) {
