@@ -13,13 +13,15 @@ website:
       - projects.qmd
     tools:
     - icon: twitter
-      href: https://twitter.com
+      href: https://twitter.com/tylermmoseley
     - icon: github
       menu:
-        - text: Source Code
-          url:  https://code.com
+        - text: GitHub Profile
+          url: https://github.com/tylermoseley
+        - text: This Page's Source
+          url:  https://github.com/tylermoseley/tylermoseley.github.io
         - text: Report a Bug
-          url:  https://bugs.com
+          url:  https://github.com/tylermoseley/tylermoseley.github.io/issues/new
 
 format:
   html:
