@@ -1,6 +1,9 @@
 ---
-title: New Home Page
+title: Tyler Moseley: New Home Page
 ---
+
+# Explore and Engage: Discover the Enhanced Features of My Revamped Site
+
 ## Image Classification in ml5.js 
 
 ```{ojs}
