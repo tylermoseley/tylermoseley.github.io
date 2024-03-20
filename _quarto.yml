@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - lay-summary.html
 
 website:
   title: "Tyler Moseley"
